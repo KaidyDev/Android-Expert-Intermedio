@@ -1,6 +1,9 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    alias(libs.plugins.dagger.hilt.android)
+    alias(libs.plugins.androidx.navigation.safeargs.kotlin)
+    id("kotlin-kapt")
 }
 
 android {
@@ -42,8 +45,17 @@ android {
 dependencies {
 
     //NavComponent
+    implementation(libs.dagger.hilt.android)
+    kapt(libs.dagger.hilt.compiler)
+
+    //DaggerHilt
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
+
+    //Retrofit
+    implementation(libs.retrofit)
+    implementation(libs.converter.gson)
+
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
