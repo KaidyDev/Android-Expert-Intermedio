@@ -6,6 +6,10 @@ import javax.inject.Inject
 
 class AuthInterceptor @Inject constructor():Interceptor {
     override fun intercept(chain: Interceptor.Chain): Response {
-
+        val request = chain.request()
+            .newBuilder()
+            .header("Autorization","12313123213").build()
+        return chain.proceed(request)
     }
 }
+

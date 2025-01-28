@@ -1,5 +1,6 @@
 package com.example.horcapp.data.network
 
+import com.example.horcapp.BuildConfig.BASE_URL
 import com.example.horcapp.data.RepositoryImpl
 import com.example.horcapp.domain.Repository
 import dagger.Module
@@ -20,7 +21,7 @@ object NetworkModule {
     fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit {
         return Retrofit
             .Builder()
-            .baseUrl("https://newastro.vercel.app/")
+            .baseUrl(BASE_URL)
             .client(okHttpClient)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
